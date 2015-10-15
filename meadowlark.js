@@ -21,7 +21,7 @@ app.get('/', function(req, res) {
     // res.type('text/plain');
     // res.send('Meadowlark Travel');
 });
-
+ 
 app.get('/about', function(req, res) {
     res.render('about',{ fortune: fortune.getFortune() });
     // res.type('text/plain');
