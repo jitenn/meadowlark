@@ -19,7 +19,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function(req, res) {
     res.render('home');
     // res.type('text/plain');
-    // res.send('Meadowlark Travel');
+    // res.send('Meadowlark Travel'); 
 });
  
 app.get('/about', function(req, res) {
