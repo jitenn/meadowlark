@@ -34,12 +34,19 @@ app.get('/', function(req, res) {
 app.get('/about', function(req, res) {
     res.render('about', {
         fortune: fortune.getFortune(),
-        pageTestScript: "/qa/tests-global.js"
+        pageTestScript: "/qa/tests-about.js"
     });
     // res.type('text/plain');
     // res.send('About Meadowlark Travel');
 });
 
+app.get('/tours/hood-river', function(req, res) {
+    res.render('tours/hood-river');
+});
+
+app.get('/tours/request-group-rate', function(req, res) {
+    res.render('tours/request-group-rate');
+});
 // custom 404 page
 app.use(function(req, res) {
     // res.type('text/plain');
