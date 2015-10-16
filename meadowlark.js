@@ -16,14 +16,26 @@ app.set('port', process.env.PORT || 3000);
 // Set static directories
 app.use(express.static(__dirname + '/public'));
 
+// set testing
+app.use(function(req, res, next) {
+    res.locals.showTests = app.get('env') !== 'production' &&
+        req.query.test === '1';
+    next();
+});
+
+// routes
+
 app.get('/', function(req, res) {
     res.render('home');
     // res.type('text/plain');
     // res.send('Meadowlark Travel'); 
 });
- 
+
 app.get('/about', function(req, res) {
-    res.render('about',{ fortune: fortune.getFortune() });
+    res.render('about', {
+        fortune: fortune.getFortune(),
+        pageTestScript: "/qa/tests-global.js"
+    });
     // res.type('text/plain');
     // res.send('About Meadowlark Travel');
 });
